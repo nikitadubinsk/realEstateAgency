@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'ad',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -77,8 +78,12 @@ WSGI_APPLICATION = 'django_agency.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'zitrnikgm2_jew',
+        'USER': 'zitrnikgm2_jew',
+        'PASSWORD': 'Nd2021Nd',
+        'HOST': 'pg2.sweb.ru',
+        'PORT': '5432',
     }
 }
 
