@@ -1,4 +1,5 @@
 from django.db import models
+from workers.models import Realtor, Position
 
 class Ad(models.Model): 
   title = models.CharField("Название", max_length=300)
@@ -12,7 +13,7 @@ class Ad(models.Model):
   typeOfArea = models.ForeignKey('TypeOfArea', verbose_name="Тип площади", on_delete=models.SET_NULL, null=True)
   typeOfAd = models.ForeignKey('TypeOfAd', verbose_name="Тип объявления", on_delete=models.SET_NULL, null=True)
   developer = models.ForeignKey('Developer', verbose_name="Застройщик", on_delete=models.SET_NULL, null=True)
-  realtor = models.ForeignKey('Realtor', verbose_name="Риелтор", on_delete=models.SET_NULL, null=True)
+  realtor = models.ForeignKey(Realtor, verbose_name="Риелтор", on_delete=models.SET_NULL, null=True)
   convenience = models.ManyToManyField('Сonvenience', verbose_name="Удобства")
   done = models.BooleanField("Статус")
 
@@ -79,30 +80,6 @@ class Сonvenience(models.Model):
   class Meta: 
     verbose_name = "Удобство"
     verbose_name_plural = "Удобства"
-
-class Realtor(models.Model): 
-  name = models.CharField("Имя", max_length=300)
-  email = models.CharField("Адрес электронная почта", max_length=300)
-  telephone = models.CharField("Телефон", max_length=300)
-  position = models.ForeignKey('Position', verbose_name="Должность", on_delete=models.SET_NULL, null=True)
-
-  def __str__(self):
-    return self.name
-
-  class Meta: 
-    verbose_name = "Риелтор"
-    verbose_name_plural = "Риелторы"
-
-class Position(models.Model): 
-  title = models.CharField("Название", max_length=300)
-  description = models.TextField("Описание")
-
-  def __str__(self):
-    return self.title
-
-  class Meta: 
-    verbose_name = "Должность"
-    verbose_name_plural = "Должности"
 
 class Rating(models.Model): 
   point = models.CharField("Оценка", max_length=4)

@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
-from .models import Ad, Сonvenience, Price
+from .models import Ad, Сonvenience, Price, Author, Developer
+from workers.models import Realtor, Position
 
 class AdListSerializer(serializers.ModelSerializer):
   class Meta:
@@ -31,4 +32,14 @@ class AdDetailSerializer(serializers.ModelSerializer):
 class СonvenienceCreateSerializer(serializers.ModelSerializer):
   class Meta:
     model = Сonvenience
+    fields = "__all__"
+
+class AuthorListSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Author
+    fields = "__all__"
+
+class DeveloperListSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Developer
     fields = "__all__"
