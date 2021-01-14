@@ -25,7 +25,7 @@ SECRET_KEY = '@%=_*6lh38rke3qags7o#y6k5v@q(d@)(t(tcdy(ixia69sg@5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ndubinsky.nglazkov.ru', 'www.ndubinsky.nglazkov.ru', '127.0.0.1']
 
 
 # Application definition
@@ -129,3 +129,4 @@ USE_TZ = True
 IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'static/'
